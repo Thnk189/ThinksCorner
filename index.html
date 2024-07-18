@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinksCorner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: url('Background.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .room-corner {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ff69b4;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #ff69b4;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff1493;
+            border-radius: 5px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #fff;
+            margin-top: 20px;
+        }
+
+        #audio-controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        #audio-toggle {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="room-corner">
+        <header>
+            <h1>ThinksCorner</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="https://betterzunicafe.animaapp.io/zuni-page-1" target="_blank">Projects I'm Working On</a></li>
+                <li><a href="https://buymeacoffee.com/no20awesom3" target="_blank">Donate</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+        </main>
+        <footer>
+            <p>&copy; 2024 ThinksCorner</p>
+        </footer>
+    </div>
+
+    <div id="audio-controls">
+        <img id="audio-toggle" src="Audio-Off.png" alt="Toggle Music" width="40" height="40">
+    </div>
+
+    <audio id="background-music">
+        <source src="Background-Music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            const audio = document.getElementById('background-music');
+            const toggleImage = document.getElementById('audio-toggle');
+            if (audio.paused) {
+                audio.play();
+                toggleImage.src = 'Audio-On.png';
+            }
+        }, { once: true });
+
+        document.getElementById('audio-toggle').addEventListener('click', function() {
+            const audio = document.getElementById('background-music');
+            const toggleImage = document.getElementById('audio-toggle');
+            if (audio.paused) {
+                audio.play();
+                toggleImage.src = 'Audio-On.png';
+            } else {
+                audio.pause();
+                toggleImage.src = 'Audio-Off.png';
+            }
+        });
+    </script>
+</body>
+</html>
